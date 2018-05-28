@@ -1,0 +1,7 @@
+<!-- <div style="height: 500px; width: 400px; outline:5px solid red;"> -->
+  <!-- <q-table></q-table> -->
+<!-- </div> -->
+<div style="width:800px" >
+  <q-table-light [head]="mockHead" [data]="mockData" [fixedRows]="mockFixedRows" style="width:800px; height: 500px; max-width: 100%;" class="dark" ></q-table-light>
+  <q-paginator class="dark" [(limitOptions)]="limitOptions" [(limit)]="limit" [(page)]="page" [length]="length" ></q-paginator>
+</div>

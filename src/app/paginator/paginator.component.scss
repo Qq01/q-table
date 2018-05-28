@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+:host > * {
+    vertical-align: middle;
+}
+.btn, .select {
+    border: 1px solid transparent;
+    margin: 0;
+    padding: 0.1em 0.2em;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1em;
+}
+.btn {
+    padding: 0.2em 0.2em;
+}
+:host(.light) {
+    background-color: #EEE;
+    color: black;
+    border: 1px solid #CCC;
+    .btn, .select {
+        border: 1px solid #DDD;
+    }
+    .btn {
+        background-color: #DDD;
+    }
+    .btn:hover {
+        background-color: #CCC;
+        border: 1px solid #CCC;
+    }
+}
+
+:host(.dark) {
+    background-color: #222;
+    color: white;
+    .btn, .select {
+        border: 1px solid #444;
+        color: white;
+    }
+    .select * {
+        background: #444;
+        border: 1px solid #444;
+        color: white;
+    }
+    .btn {
+        background-color: #444;
+    }
+    .btn:hover {
+        background-color: #666;
+        border: 1px solid #666;
+    }
+}

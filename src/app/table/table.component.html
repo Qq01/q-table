@@ -1,0 +1,32 @@
+<!-- <div style="overflow:visible; overflow-x:visible; overflow-y: auto;display:flex; flex-direction: column;"  >
+  <div>
+    <table style="height: 50px;">
+      <thead>
+        <tr>
+          <td *ngFor="let col of head" [style.width.px]="col.width | makeSafe:'style'" >{{col.label}}</td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div style="overflow-x: auto;" [style.height.px]="height-50|makeSafe:'style'" >
+    <table>
+      <tbody>
+        <tr *ngFor="let row of data" >
+          <td *ngFor="let col of head" [style.width.px]="col.width | makeSafe:'style'" >
+            {{row[col.name]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+<div clas="row">
+  <div class="col" *ngFor="let headColumn of adapter.head.columns" [style.width.px]="headColumn.width" >
+    {{headColumn.label}}
+  </div>
+</div>
+<div class="row" *ngFor="let row of adapter.body" [style.height.px]="row.height" >
+  <div class="col" *ngFor="let headColumn of adapter.head.columns" [style.width.px]="headColumn.width" >
+    {{row.cells[headColumn.name].value}}
+  </div>
+</div>

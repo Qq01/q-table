@@ -1,0 +1,29 @@
+<div #headWrapper class="headWrapper" style="overflow: hidden; width: 100%; position: absolute; top:0;">
+  <table #headTable class="headTable" >
+    <thead>
+      <tr>
+        <td *ngFor="let col of head, let i = index;"
+          [class.sticky]="col.sticky"
+          [innerHTML]="col.label | makeSafe:options.bypassSecurity?'html':''"
+          (click)="onClick($event,'head', head, col, null)" >
+          <!-- {{col.label}} -->
+        </td>
+        <td #scrollbarFixer class="scrollbarFixer" style="visibility: hidden; width:0px;" ></td>
+      </tr>
+    </thead>
+  </table>
+</div>
+<main #dataWrapper class="dataWrapper" (scroll)="updateScroll()" >
+  <table #dataTable class="dataTable" >
+    <thead>
+      <tr *ngFor="let row of data; let i = index" [class.sticky]="fixedRows.indexOf(i) > -1" >
+        <td *ngFor="let col of head"
+        [class.sticky]="col.sticky"
+        [innerHTML]="row[col.name] | makeSafe:options.bypassSecurity?'html':''"
+        (click)="onClick($event,'cell', row, col, i)" >
+          <!-- {{row[col.name]}} -->
+        </td>
+      </tr>
+    </thead>
+  </table>
+</main>

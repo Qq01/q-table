@@ -1,0 +1,9 @@
+<select class="select" [ngModel]="limit" (ngModelChange)="limitChange.emit($event)" >
+  <option *ngFor="let o of limitOptions" [value]="o" >{{o}}</option>
+</select>
+{{page}} - {{countPages()}}
+<select class="select" [ngModel]="page" (ngModelChange)="pageChange.emit($event)" >
+  <option *ngFor="let l of getListOfPages(); let i = index" [value]="i+1" >{{l}}</option>
+</select>
+<button class="btn material-icons" (click)="pagePrev()" [disabled]="page + 1 < countPages()" >navigate_before</button>
+<button class="btn material-icons" (click)="pageNext()" [disabled]="page - 1 > 1" >navigate_next</button>
