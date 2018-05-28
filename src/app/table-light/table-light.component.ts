@@ -10,7 +10,7 @@ export class TableLightComponent implements OnInit, AfterViewChecked {
   @Input('data') data: {[x:string]:any}[];
   @Input('fixedRows') fixedRows: number[] = [];
   @Input('options') options: {} = {
-    bypassSecurity: true,
+    bypassSecurity: false,
   };
 
   @Output('tableClick') tableClick = new EventEmitter();
@@ -69,7 +69,7 @@ export class TableLightComponent implements OnInit, AfterViewChecked {
     (this.scrollbarFixer.nativeElement as HTMLElement).style.minWidth = scrollbarWidth + 'px';
   }
   
-  onClick($event:Event, type:string, row:{}, col:{}, index:number) {
+  onClick($event:Event, type:string, row:{}, col:{}, index:number|null) {
     this.tableClick.emit({
       event: $event,
       type: type,

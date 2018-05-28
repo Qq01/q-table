@@ -1,4 +1,33 @@
 # QTable
+Simple table with fixed header, provided with 2 themes `light` and `dark`
+
+Checked on IE >= 9, Edge and Chrome
+
+## Usage
+* import `TableLightComponent`
+* put `<q-table-light>` in your html code
+* specify width and height of the component
+* Inputs:
+* * `head`: `{name:string;label:string}[]`
+    Array of headers (name - column uid (used in combination with `data`), label - visible column header)
+* * `data`: `{}[]`
+    Array of Objects with data for the table
+* * `options` : `{}`
+* * * `bypassSecurity` : `boolean` (default: `false`)
+        Disables angular security check for innerHTML of the tables
+* Outputs:
+* * `tableClick`: `{event:Event, type:string, row:{}, col:{}, index:number|null}`
+* * * `event` : `Event`
+        Cell click event
+* * * `type`: `string` = `head` | `cell`
+* * * `row`: `{}`
+        Head or body row on which user clicked
+* * * `cell`: `{}`
+        Cell that was clicked
+* * * `index`: `number` | `null`
+        Row index that was clicked or null if it was header
+
+***
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
